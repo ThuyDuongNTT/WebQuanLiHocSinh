@@ -1,0 +1,43 @@
+﻿@model QuanLiDiem.Models.Subjects
+
+@{
+    ViewBag.Title = "Thông tin chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Môn học</h2>
+
+<div>
+    <h4>Thông tin môn học</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaMH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaMH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenMH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenMH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Khoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Khoi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new {  id = Model.MaMH }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

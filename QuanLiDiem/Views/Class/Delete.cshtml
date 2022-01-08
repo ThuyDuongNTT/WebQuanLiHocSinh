@@ -1,0 +1,57 @@
+﻿@model QuanLiDiem.Models.Class
+
+@{
+    ViewBag.Title = "Xóa lớp học";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa lớp học</h2>
+
+<h3>Bạn có chắc muốn xóa lớp học này không?</h3>
+<div>
+    <h4>Lớp</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiSo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiSo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaGVCN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaGVCN)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>

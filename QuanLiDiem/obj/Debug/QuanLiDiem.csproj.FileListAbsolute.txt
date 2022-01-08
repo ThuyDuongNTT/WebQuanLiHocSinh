@@ -73,3 +73,4 @@ C:\Users\admin\source\repos\QuanLiDiem\QuanLiDiem\obj\Debug\QuanLiDiem.csproj.Co
 C:\Users\admin\source\repos\QuanLiDiem\QuanLiDiem\obj\Debug\QuanLiDiem.csproj.CopyComplete
 C:\Users\admin\source\repos\QuanLiDiem\QuanLiDiem\obj\Debug\QuanLiDiem.dll
 C:\Users\admin\source\repos\QuanLiDiem\QuanLiDiem\obj\Debug\QuanLiDiem.pdb
+C:\Users\admin\source\repos\QuanLiDiem\QuanLiDiem\obj\Debug\QuanLiDiem.csprojAssemblyReference.cache

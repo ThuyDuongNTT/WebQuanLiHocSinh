@@ -57,6 +57,41 @@ namespace QuanLiDiem.Models
             return stuList;
         }
 
-        
+        public void AddClass(Class stu)
+        {
+            string sql = "INSERT INTO Lop(TenLop,SiSo, MaGVCN) VALUES (N'" + stu.MaLop + "',N'" + stu.SiSo + "',N'" + stu.MaGVCN + "')";
+            SqlConnection con = db.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+        }
+
+        public void UpdateClass(Class stu)
+        {
+            int temp1 = Convert.ToInt32(stu.SiSo);
+            int temp2 = Convert.ToInt32(stu.MaGVCN);
+
+            string sql = "UPDATE Lop SET TenLop = N'" + stu.TenLop + "',SiSo = " + temp1 + ",MaGVCN =  " + temp2 + " WHERE MaLop = " + stu.MaLop;
+            SqlConnection con = db.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+        }
+
+        public void DeleteClass(Class stu)
+        {
+            string sql = "DELETE Lop WHERE MaLop = " + stu.MaLop;
+            SqlConnection con = db.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+        }
+
     }
 }

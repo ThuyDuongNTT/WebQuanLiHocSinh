@@ -34,5 +34,41 @@ namespace QuanLiDiem.Controllers
             }
             return View();
         }
+
+        public ActionResult Edit(string id = "")
+        {
+            StudentList stuList = new StudentList(); ;
+            List<Student> obj = stuList.getStudent(id);
+            return View(obj.FirstOrDefault());
+
+        }
+        [HttpPost]
+        public ActionResult Edit(Student stu)
+        {
+            StudentList stuList = new StudentList();
+            stuList.UpdateStudent(stu);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(string id ="")
+        {
+            StudentList stuList = new StudentList();
+            List<Student> obj = stuList.getStudent(id);
+            return View(obj.FirstOrDefault());
+        }
+
+        public ActionResult Delete(string id ="")
+        {
+            StudentList stuList = new StudentList();
+            List<Student> obj = stuList.getStudent(id);
+            return View(obj.FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult Delete(Student stu)
+        {
+            StudentList stuList = new StudentList();
+            stuList.DeleteStudent(stu);
+            return RedirectToAction("Index");
+        }
     }
 }

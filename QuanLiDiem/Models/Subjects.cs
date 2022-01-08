@@ -16,7 +16,7 @@ namespace QuanLiDiem.Models
         [Display(Name = "Tên môn học")]
         public string TenMH { set; get; }
         [Display(Name = "Khối")]
-        public string Khoi { set; get; }
+        public int Khoi { set; get; }
     }
     class SubjectsList
     {
@@ -25,6 +25,7 @@ namespace QuanLiDiem.Models
         {
             db = new DBConnection();
         }
+
         public List<Subjects> getSubjects(string ID)
         {
 
@@ -32,7 +33,7 @@ namespace QuanLiDiem.Models
             if (string.IsNullOrEmpty(ID))
                 sql = "SELECT* FROM MonHoc";
             else
-                sql = "SELECT* FROM MonHoc WHERE MonHoc =" + ID;
+                sql = "SELECT* FROM MonHoc WHERE MaMH =" + ID;
 
             List<Subjects> stuList = new List<Subjects>();
             DataTable dt = new DataTable();
@@ -43,16 +44,55 @@ namespace QuanLiDiem.Models
             da.Dispose();
             con.Close();
             Subjects tmpStu;
+
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 tmpStu = new Subjects();
                 tmpStu.MaMH = Convert.ToInt32(dt.Rows[i]["MaMH"].ToString());
                 tmpStu.TenMH = dt.Rows[i]["TenMH"].ToString();
-                tmpStu.Khoi = dt.Rows[i]["Khoi"].ToString();
+                tmpStu.Khoi = Convert.ToInt32(dt.Rows[i]["Khoi"].ToString());
 
                 stuList.Add(tmpStu);
             }
             return stuList;
+        }
+
+
+        public void AddSubjects(Subjects stu)
+        {
+            //int temp = Convert.ToInt32(stu.Khoi); 
+
+            string sql = "INSERT INTO MonHoc(TenMH, Khoi) VALUES (N'" + stu.TenMH + "'," + stu.Khoi + ")";
+            SqlConnection con = db.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+        }
+
+        public void UpdateSubjects(Subjects stu)
+        {
+            int temp = Convert.ToInt32(stu.Khoi);
+            string sql = "UPDATE MonHoc SET TenMH = N'" + stu.TenMH + "', Khoi =  " + temp + " WHERE MaMH = " + stu.MaMH;
+            SqlConnection con = db.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+        }
+
+        public void DeleteSubjects(Subjects stu)
+        {
+            //int temp = Convert.ToInt32(stu.Khoi);
+            string sql = "DELETE MonHoc WHERE MaMH = " + stu.MaMH;
+            SqlConnection con = db.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
         }
 
 

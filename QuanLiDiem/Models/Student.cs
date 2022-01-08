@@ -63,7 +63,7 @@ namespace QuanLiDiem.Models
                 tmpStu = new Student();
                 tmpStu.MaHS = Convert.ToInt32(dt.Rows[i]["MaHS"].ToString());
                 tmpStu.TenHS = dt.Rows[i]["TenHS"].ToString();
-               // tmpStu.NgaySinh = Convert.ToDateTime(dt.Rows[i]["NgaySinh"].ToString());
+                tmpStu.NgaySinh = Convert.ToDateTime(dt.Rows[i]["NgaySinh"].ToString());
 
               //  tmpStu.NgaySinh = Convert.ToDateTime(dt.Rows[i]["NgaySinh"].ToString());
                 tmpStu.GioiTinh = dt.Rows[i]["GioiTinh"].ToString();         
@@ -81,7 +81,29 @@ namespace QuanLiDiem.Models
         
         public void AddStudent(Student stu)
         {
-            string sql = "INSERT INTO HocSinh(TenHS,GioiTinh) VALUES (N'" + stu.TenHS + "',N'" + stu.GioiTinh + "')";
+            string sql = "INSERT INTO HocSinh(TenHS, NgaySinh, GioiTinh, DiaChi, Email) VALUES (N'" + stu.TenHS + "',NULL,N'" + stu.GioiTinh + "',N'" + stu.DiaChi + "',N'" + stu.Email + "')";
+            SqlConnection con = db.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+        }
+
+        public void UpdateStudent(Student stu)
+        {
+            string sql = "UPDATE HocSinh SET TenHS = N'" + stu.TenHS + "',NgaySinh =  N'" + stu.NgaySinh + "',GioiTinh =  N'" + stu.GioiTinh + "', DiaChi = N'" + stu.DiaChi + "',Email =  N'" + stu.Email + "' WHERE MaHS = " + stu.MaHS;
+            SqlConnection con = db.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+        }
+
+        public void DeleteStudent(Student stu)
+        {
+            string sql = "DELETE FROM HocSinh WHERE MaHS = " + stu.MaHS;
             SqlConnection con = db.GetConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
             con.Open();
