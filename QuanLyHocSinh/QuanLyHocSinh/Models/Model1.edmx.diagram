@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ee43c81cd1db4cf6b94755044f00c81f" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_QuanLiDiemModel.BaoCaoTK" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_QuanLiDiemModel.Diem" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_QuanLiDiemModel.GiangVien" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_QuanLiDiemModel.HocSinh" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_QuanLiDiemModel.Lop" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_QuanLiDiemModel.MonHoc" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_QuanLiDiemModel.PhanCong" Width="1.5" PointX="10.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_QuanLiDiemModel.Quyen" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="DB_QuanLiDiemModel.FK__BaoCaoTK__MaLop__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_QuanLiDiemModel.FK__BaoCaoTK__MaMH__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_QuanLiDiemModel.FK__Diem__MaHS__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_QuanLiDiemModel.FK__Diem__MaMH__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_QuanLiDiemModel.FK__GiangVien__MaQuy__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_QuanLiDiemModel.FK__Lop__MaGVCN__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_QuanLiDiemModel.FK__PhanCong__MaGV__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_QuanLiDiemModel.FK__HocSinh__MaLop__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_QuanLiDiemModel.FK__PhanCong__MaLop__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_QuanLiDiemModel.FK__PhanCong__MaMH__35BCFE0A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
