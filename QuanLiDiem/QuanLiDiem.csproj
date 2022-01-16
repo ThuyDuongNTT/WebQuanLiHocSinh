@@ -122,15 +122,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClassController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PointManagementController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\RulesController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
+    <Compile Include="Controllers\UserManagementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\DBConnection.cs" />
+    <Compile Include="Models\PointManagement.cs" />
+    <Compile Include="Models\Reports.cs" />
+    <Compile Include="Models\Rules.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Subjects.cs" />
+    <Compile Include="Models\UserManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,7 +183,6 @@
     <Content Include="Views\Subjects\Index.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
-    <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Class\Create.cshtml" />
     <Content Include="Views\Class\Edit.cshtml" />
     <Content Include="Views\Class\Details.cshtml" />
@@ -184,6 +191,15 @@
     <Content Include="Views\Subjects\Edit.cshtml" />
     <Content Include="Views\Subjects\Details.cshtml" />
     <Content Include="Views\Subjects\Delete.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\PointManagement\Index.cshtml" />
+    <Content Include="Views\PointManagement\Create.cshtml" />
+    <Content Include="Views\PointManagement\Edit.cshtml" />
+    <Content Include="Views\PointManagement\Details.cshtml" />
+    <Content Include="Views\PointManagement\Delete.cshtml" />
+    <Content Include="Views\Rules\Index.cshtml" />
+    <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\UserManagement\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

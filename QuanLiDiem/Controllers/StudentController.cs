@@ -13,7 +13,8 @@ namespace QuanLiDiem.Controllers
         public ActionResult Index()
         {
             StudentList stuList = new StudentList();
-            List<Student> obj = stuList.getStudent(string.Empty).OrderBy(x => x.TenHS).ToList();
+            // List<Student> obj = stuList.getStudent(string.Empty).OrderBy(x => x.TenHS).ToList();
+            List<Student> obj = stuList.getStudent(string.Empty).ToList();
 
             return View(obj);
         }
@@ -49,17 +50,9 @@ namespace QuanLiDiem.Controllers
             stuList.UpdateStudent(stu);
             return RedirectToAction("Index");
         }
-
-        public ActionResult Details(string id ="")
+        public ActionResult Delete(string id = "")
         {
-            StudentList stuList = new StudentList();
-            List<Student> obj = stuList.getStudent(id);
-            return View(obj.FirstOrDefault());
-        }
-
-        public ActionResult Delete(string id ="")
-        {
-            StudentList stuList = new StudentList();
+            StudentList stuList = new StudentList(); ;
             List<Student> obj = stuList.getStudent(id);
             return View(obj.FirstOrDefault());
         }
@@ -70,5 +63,14 @@ namespace QuanLiDiem.Controllers
             stuList.DeleteStudent(stu);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Details(string id ="")
+        {
+            StudentList stuList = new StudentList();
+            List<Student> obj = stuList.getStudent(id);
+            return View(obj.FirstOrDefault());
+        }
+
+
     }
 }

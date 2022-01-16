@@ -6,10 +6,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Học Sinh</h2>
 
 <p>
     @Html.ActionLink("Lập hồ sơ học sinh mới", "Create")
+</p>
+<p>
+    @Html.TextBox("SearchString")    <input type="submit" value="Tìm kiếm"/>
 </p>
 <table class="table">
     <tr>

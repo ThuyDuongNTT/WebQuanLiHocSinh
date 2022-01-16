@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Lập hồ sơ học sinh mới</h2>
+<h2>Học sinh</h2>
 
 
 @using (Html.BeginForm()) 
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Học sinh</h4>
+        <h4>Lập hồ sơ học sinh mới</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
      

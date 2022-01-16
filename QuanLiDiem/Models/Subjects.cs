@@ -10,6 +10,7 @@ namespace QuanLiDiem.Models
 {
     public class Subjects
     {
+        [Display(Name = "Mã môn học")]
 
         public int MaMH { set; get; }
         [Required(ErrorMessage = "Mời nhập tên môn học")]
@@ -86,7 +87,9 @@ namespace QuanLiDiem.Models
         public void DeleteSubjects(Subjects stu)
         {
             //int temp = Convert.ToInt32(stu.Khoi);
+            
             string sql = "DELETE MonHoc WHERE MaMH = " + stu.MaMH;
+
             SqlConnection con = db.GetConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
             con.Open();

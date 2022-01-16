@@ -1,0 +1,78 @@
+﻿@model IEnumerable<QuanLiDiem.Models.Rules>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lí quyền</h2>
+
+<p>
+    @Html.ActionLink("Tạo quyền mới", "Create")
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.TenQuyen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HocSinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LopHoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonHoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BangDiem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaoCao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NguoiDung)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.TenQuyen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrangThai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HocSinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LopHoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonHoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BangDiem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaoCao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NguoiDung)
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Chi tiết", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

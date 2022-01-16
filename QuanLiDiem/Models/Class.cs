@@ -10,14 +10,16 @@ namespace QuanLiDiem.Models
 {
     public class Class
     {
+        [Display(Name = "Mã lớp")]
+
         public int MaLop { set; get; }
         [Required(ErrorMessage = "Mời nhập tên lớp")]
         [Display(Name = "Tên lớp")]
         public string TenLop { set; get; }
         [Display(Name = "Sỉ Số")]
-        public string SiSo { set; get; }
+        public int SiSo { set; get; }
         [Display(Name = "Giáo viên chủ nhiệm")]
-        public string MaGVCN { set; get; }
+        public int MaGVCN { set; get; }
     }
     class ClassList
     {
@@ -49,8 +51,8 @@ namespace QuanLiDiem.Models
                 tmpStu = new Class();
                 tmpStu.MaLop = Convert.ToInt32(dt.Rows[i]["MaLop"].ToString());
                 tmpStu.TenLop = dt.Rows[i]["TenLop"].ToString();
-                tmpStu.SiSo = dt.Rows[i]["SiSo"].ToString();                
-                tmpStu.MaGVCN = dt.Rows[i]["MaGVCN"].ToString();
+                tmpStu.SiSo = Convert.ToInt32(dt.Rows[i]["SiSo"].ToString());                
+                tmpStu.MaGVCN = Convert.ToInt32(dt.Rows[i]["MaGVCN"].ToString());
 
                 stuList.Add(tmpStu);
             }
@@ -59,7 +61,9 @@ namespace QuanLiDiem.Models
 
         public void AddClass(Class stu)
         {
-            string sql = "INSERT INTO Lop(TenLop,SiSo, MaGVCN) VALUES (N'" + stu.MaLop + "',N'" + stu.SiSo + "',N'" + stu.MaGVCN + "')";
+            int temp1 = Convert.ToInt32(stu.SiSo);
+            int temp2 = Convert.ToInt32(stu.MaGVCN);
+            string sql = "INSERT INTO Lop(TenLop,SiSo, MaGVCN) VALUES (N'" + stu.TenLop + "'," + temp1 + "," + temp2 + ")";
             SqlConnection con = db.GetConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
             con.Open();
@@ -84,7 +88,8 @@ namespace QuanLiDiem.Models
 
         public void DeleteClass(Class stu)
         {
-            string sql = "DELETE Lop WHERE MaLop = " + stu.MaLop;
+            string sql = "DELETE Lop WHERE MaLop = " + stu.MaLop; 10003
+
             SqlConnection con = db.GetConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
             con.Open();

@@ -8,14 +8,17 @@ using System.Web;
 
 namespace QuanLiDiem.Models
 {
-    public class Student
+    public class StudentID
+    {
+        public string ID;
+    }
+        public class Student
     {
         public int MaHS { set; get; }
         [Required(ErrorMessage="Mời nhập học và tên sinh viên")]
         [Display(Name = "Họ và tên")]
         public string TenHS { set; get; }
        // [Required(ErrorMessage = "Mời nhập ngày sinh từ 15 đến 20 tuổi")]
-
         [Display(Name = "Ngày sinh")]
         public DateTime NgaySinh { set; get; }
         [Required(ErrorMessage = "Mời nhập giới tính")]
@@ -29,12 +32,14 @@ namespace QuanLiDiem.Models
         public string Email { set; get; }
         [Display(Name = "Mã lớp học")]
        // public int MaLop { set; get; }
-        public string MaLop { set; get; }
+        public int MaLop { set; get; }
 
     }
 
     class StudentList
     {
+        public string temp_id { set; get; }
+
         DBConnection db;
         public StudentList()
         {
@@ -64,24 +69,29 @@ namespace QuanLiDiem.Models
                 tmpStu.MaHS = Convert.ToInt32(dt.Rows[i]["MaHS"].ToString());
                 tmpStu.TenHS = dt.Rows[i]["TenHS"].ToString();
                 tmpStu.NgaySinh = Convert.ToDateTime(dt.Rows[i]["NgaySinh"].ToString());
-
-              //  tmpStu.NgaySinh = Convert.ToDateTime(dt.Rows[i]["NgaySinh"].ToString());
                 tmpStu.GioiTinh = dt.Rows[i]["GioiTinh"].ToString();         
                 tmpStu.DiaChi = dt.Rows[i]["DiaChi"].ToString();
                 tmpStu.Email = dt.Rows[i]["Email"].ToString();
-              //  tmpStu.MaLop = Convert.ToInt32(dt.Rows[i]["MaLop"].ToString());
-                tmpStu.MaLop = dt.Rows[i]["MaLop"].ToString();
+                string temp = dt.Rows[i]["MaLop"].ToString();
+                if (string.IsNullOrEmpty(temp))
+                {
+                    tmpStu.MaLop = 0;
 
+                }
+                else
+                {
+                    tmpStu.MaLop = Convert.ToInt32(temp);
+                }
                 stuList.Add(tmpStu);
-
             }
             return stuList;
         }
-
         
         public void AddStudent(Student stu)
         {
-            string sql = "INSERT INTO HocSinh(TenHS, NgaySinh, GioiTinh, DiaChi, Email) VALUES (N'" + stu.TenHS + "',NULL,N'" + stu.GioiTinh + "',N'" + stu.DiaChi + "',N'" + stu.Email + "')";
+            string format = "yyyy-MM-dd HH:mm:ss";
+            DateTime tempDate = Convert.ToDateTime(stu.NgaySinh.ToString("yyyy-MM-dd"));
+            string sql = "INSERT INTO HocSinh(TenHS, NgaySinh, GioiTinh, DiaChi, Email,MaLop) VALUES (N'" + stu.TenHS + "','"+ stu.NgaySinh.ToString(format)+ "',N'" + stu.GioiTinh + "',N'" + stu.DiaChi + "',N'" + stu.Email + "',NULL)";
             SqlConnection con = db.GetConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
             con.Open();
@@ -111,7 +121,6 @@ namespace QuanLiDiem.Models
             cmd.Dispose();
             con.Close();
         }
-    }
-    
+    }    
 
 }

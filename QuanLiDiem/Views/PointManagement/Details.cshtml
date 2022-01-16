@@ -1,0 +1,75 @@
+﻿@model QuanLiDiem.Models.PointManagement
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PointManagement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaHS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaHS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaMon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaMon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HocKy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HocKy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NienKhoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NienKhoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diem15p)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diem15p)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diem1Tiet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diem1Tiet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiemCuoiKy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiemCuoiKy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
